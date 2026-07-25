@@ -1,48 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GoTab</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { width: 100%; height: 100%; overflow: hidden; background: #0a0a1a; }
-  iframe { width: 100%; height: 100%; border: none; display: block; }
-  .offline {
-    display: none;
-    position: fixed; inset: 0; background: #0a0a1a;
-    color: #fff; justify-content: center; align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    flex-direction: column; gap: 16px;
-  }
-  .offline.show { display: flex; }
-  .offline h2 { font-weight: 200; font-size: 24px; }
-  .offline p { color: rgba(255,255,255,0.5); font-size: 14px; }
-</style>
+<meta http-equiv="refresh" content="0;url=https://master.gotab-v2.pages.dev">
+<script>location.replace('https://master.gotab-v2.pages.dev')</script>
 </head>
-<body>
-<iframe id="gt" src="https://master.gotab-v2.pages.dev"></iframe>
-<div class="offline" id="offline">
-  <h2>GoTab</h2>
-  <p>无法连接到服务器，请检查网络</p>
-</div>
-<script>
-const iframe = document.getElementById('gt');
-const offline = document.getElementById('offline');
-
-iframe.addEventListener('error', () => {
-  iframe.style.display = 'none';
-  offline.classList.add('show');
-});
-
-// 每 30 秒重试
-setInterval(() => {
-  if (offline.classList.contains('show')) {
-    iframe.src = iframe.src; // 触发重新加载
-    iframe.style.display = 'block';
-    offline.classList.remove('show');
-  }
-}, 30000);
-</script>
-</body>
+<body></body>
 </html>
