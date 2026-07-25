@@ -37,6 +37,7 @@ export const appState = {
   blur: 0,
   sidebarOpen: false,
   activeEngine: '百度',
+  activeEngineUrl: 'https://www.baidu.com/s?wd=%s',
 };
 
 // 初始化主题

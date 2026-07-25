@@ -225,7 +225,7 @@ body.has-bg::after {
 .engine-popup {
   position: absolute;
   top: calc(100% + 8px);
-  right: 0;
+  left: 0;
   background: var(--modal-bg);
   border: 1px solid var(--border);
   border-radius: 12px;

@@ -188,6 +188,7 @@ function bindEvents() {
     enginePopup.querySelectorAll('.ep-item').forEach(item => {
       item.addEventListener('click', () => {
         appState.activeEngine = item.dataset.engine;
+        appState.activeEngineUrl = item.dataset.url;
         enginePopup.classList.remove('show');
         renderApp();
       });
@@ -222,10 +223,7 @@ function executeSearch() {
   const query = document.getElementById('searchInput')?.value.trim();
   if (!query) return;
 
-  const engine = (appState.data.searchEngines || []).find(
-    e => e.label === appState.activeEngine
-  );
-  const urlFormat = engine?.urlFormat || DEFAULT_ENGINES[0].urlFormat;
+  const urlFormat = appState.activeEngineUrl || DEFAULT_ENGINES[0].urlFormat;
   window.open(urlFormat.replace('%s', encodeURIComponent(query)), '_blank');
 }
 
