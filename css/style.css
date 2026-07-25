@@ -193,15 +193,17 @@ body.has-bg::after {
   display: flex;
   align-items: center;
   height: 46px;
-  background: transparent;
-  border: none;
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 0 14px;
   transition: border 0.2s;
 }
 
 .search-box:focus-within {
-  border: 1px solid rgba(124, 58, 237, 0.5);
+  border-color: rgba(124, 58, 237, 0.5);
 }
 
 .search-box input {
@@ -238,28 +240,27 @@ body.has-bg::after {
   color: var(--text);
 }
 
-/* 引擎选择器 — 右侧小圆点 */
+/* 引擎选择器 — 右侧纯图标，无背景 */
 .engine-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   padding: 0;
-  border-radius: 50%;
-  background: rgba(127, 127, 127, 0.08);
+  background: transparent;
   border: none;
   color: var(--text-secondary);
   cursor: pointer;
-  font-size: 12px;
-  margin-left: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-left: 6px;
   flex-shrink: 0;
-  transition: all 0.2s;
-  overflow: hidden;
+  transition: color 0.2s;
+  overflow: visible;
 }
 
 .engine-btn:hover {
-  background: rgba(127, 127, 127, 0.2);
   color: var(--text);
 }
 
