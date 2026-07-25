@@ -41,12 +41,13 @@ export function renderIcon(iconUrl, linkUrl) {
 
 // 搜索引擎图标
 export function renderEngineIcon(label) {
-  const icons = {
-    '百度': 'B',
-    'Bing': 'B',
-    'Google': 'G',
+  const favicons = {
+    '百度': 'https://www.baidu.com/favicon.ico',
+    'Bing': 'https://www.bing.com/favicon.ico',
+    'Google': 'https://www.google.com/favicon.ico',
   };
-  return `<span style="font-weight:700;font-size:14px">${icons[label] || label[0]?.toUpperCase() || 'S'}</span>`;
+  const url = favicons[label] || `https://faviconsnap.com/api/favicon?url=${encodeURIComponent('https://' + label.toLowerCase() + '.com')}&size=32`;
+  return `<img src="${url}" width="18" height="18" onerror="this.style.display='none'" style="display:block">`;
 }
 
 // ---- 主渲染 ----
