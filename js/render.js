@@ -79,13 +79,8 @@ export function renderApp() {
       <div class="search">
         <div class="search-wrapper">
           <div class="search-box" id="searchBox">
-            <button class="search-icon" id="searchBtn" title="搜索">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-              </svg>
-            </button>
+            <span id="engineBtn" style="cursor:pointer;flex-shrink:0;line-height:0;margin-right:8px">${renderEngineIcon(appState.activeEngine)}</span>
             <input type="text" id="searchInput" placeholder="搜索..." autocomplete="off">
-            <button class="engine-btn" id="engineBtn" title="切换搜索引擎">${renderEngineIcon(appState.activeEngine)}</button>
           </div>
           <div class="engine-popup" id="enginePopup">
             ${activeEngines.map(e => `
@@ -199,11 +194,9 @@ function bindEvents() {
     });
   }
 
-  // 搜索
+  // 搜索（回车触发）
   const searchInput = document.getElementById('searchInput');
-  const searchBtn = document.getElementById('searchBtn');
-  if (searchInput && searchBtn) {
-    searchBtn.addEventListener('click', () => executeSearch());
+  if (searchInput) {
     searchInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') executeSearch();
     });

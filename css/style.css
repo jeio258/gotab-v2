@@ -221,56 +221,6 @@ body.has-bg::after {
   color: var(--text-tertiary);
 }
 
-/* 搜索图标 — 左侧 */
-.search-icon {
-  background: none;
-  border: none;
-  color: var(--text-secondary);
-  cursor: pointer;
-  font-size: 17px;
-  padding: 6px;
-  margin-right: 8px;
-  transition: color 0.2s;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-
-.search-icon:hover {
-  color: var(--text);
-}
-
-/* 引擎选择器 — 右侧纯图标，无背景 */
-.engine-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  padding: 0;
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
-  cursor: pointer;
-  font-size: 13px;
-  font-weight: 700;
-  margin-left: 6px;
-  flex-shrink: 0;
-  transition: color 0.2s;
-  overflow: visible;
-}
-
-.engine-btn:hover {
-  color: var(--text);
-}
-
-.engine-btn img {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-  border-radius: 2px;
-}
-
 /* 引擎弹出层 — 独立于搜索框 */
 .engine-popup {
   position: absolute;
@@ -781,19 +731,7 @@ body.has-bg::after {
     font-size: 14px;
   }
 
-  .search-icon {
-    font-size: 15px;
-    padding: 4px;
-    margin-right: 4px;
-  }
 
-  .engine-btn {
-    width: 26px;
-    height: 26px;
-    min-width: 26px;
-    margin-left: 4px;
-    font-size: 11px;
-  }
 
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
