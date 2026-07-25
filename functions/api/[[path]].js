@@ -174,7 +174,8 @@ async function route(req, env) {
       try { settings = JSON.parse(settingsRow); } catch { /* ignore */ }
     }
 
-    return json({ categories: cats, links: lnks, searchEngines: eng, wallpapers: walls, settings });
+    const engines = eng.map(e => ({ ...e, urlFormat: e.url_format || e.urlFormat }));
+    return json({ categories: cats, links: lnks, searchEngines: engines, wallpapers: walls, settings });
   }
 
   // 分享

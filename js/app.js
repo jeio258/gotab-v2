@@ -140,7 +140,16 @@ function renderSidebar() {
         <button class="btn" style="width:100%;justify-content:center" id="registerBtn">注册</button>
       </div>
       <div class="divider"></div>
-    ` : ''}
+    ` : `
+      <div style="padding:8px 0 18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:16px">${escapeHtml(user.username[0]?.toUpperCase() || 'U')}</div>
+          <span style="font-weight:500;color:var(--text)">${escapeHtml(user.username)}</span>
+        </div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center" id="addLinkBtn">+ 添加链接</button>
+      </div>
+      <div class="divider"></div>
+    `}
 
     <h4>外观</h4>
     <div class="sidebar-row">
@@ -217,6 +226,7 @@ function bindSidebarEvents() {
   // 登录/注册
   document.getElementById('loginBtn')?.addEventListener('click', showLoginModal);
   document.getElementById('registerBtn')?.addEventListener('click', showRegisterModal);
+  document.getElementById('addLinkBtn')?.addEventListener('click', showAddLinkModal);
 
   // 主题
   document.getElementById('themeToggle')?.addEventListener('change', (e) => {

@@ -63,11 +63,6 @@ export function renderApp() {
   applyBackground();
 
   document.getElementById('app').innerHTML = `
-    <div class="topbar">
-      <span class="btn" style="cursor:default">${user ? escapeHtml(user.username) : '访客'}</span>
-      ${user ? '<button class="btn btn-primary" id="addLinkBtn">+ 添加</button>' : ''}
-    </div>
-
     <div class="main">
       <div class="clock-wrap">
         <div class="clock" id="clockDisplay">00:00:00</div>
