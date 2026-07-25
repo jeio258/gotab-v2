@@ -185,6 +185,10 @@ body.has-bg::after {
   margin-bottom: 28px;
 }
 
+.search-wrapper {
+  position: relative;
+}
+
 .search-box {
   display: flex;
   align-items: center;
@@ -196,7 +200,6 @@ body.has-bg::after {
   border-radius: 14px;
   padding: 0 14px;
   transition: border 0.2s;
-  position: relative;
 }
 
 .search-box:focus-within {
@@ -205,6 +208,7 @@ body.has-bg::after {
 
 .search-box input {
   flex: 1;
+  min-width: 0;
   background: none;
   border: none;
   outline: none;
@@ -217,22 +221,40 @@ body.has-bg::after {
   color: var(--text-tertiary);
 }
 
+/* 搜索图标 — 左侧 */
+.search-icon {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 17px;
+  padding: 6px;
+  margin-right: 8px;
+  transition: color 0.2s;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
 
+.search-icon:hover {
+  color: var(--text);
+}
 
+/* 引擎选择器 — 右侧小圆点 */
 .engine-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   padding: 0;
   border-radius: 50%;
-  background: rgba(127, 127, 127, 0.1);
+  background: rgba(127, 127, 127, 0.08);
   border: none;
   color: var(--text-secondary);
   cursor: pointer;
-  font-size: 16px;
-  margin-right: 10px;
+  font-size: 12px;
+  margin-left: 8px;
   flex-shrink: 0;
   transition: all 0.2s;
   overflow: hidden;
@@ -244,17 +266,17 @@ body.has-bg::after {
 }
 
 .engine-btn img {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   object-fit: contain;
   border-radius: 2px;
 }
 
+/* 引擎弹出层 — 独立于搜索框 */
 .engine-popup {
   position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: 8px;
+  top: calc(100% + 8px);
+  right: 0;
   background: var(--modal-bg);
   border: 1px solid var(--border);
   border-radius: 12px;

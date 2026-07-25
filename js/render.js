@@ -76,14 +76,16 @@ export function renderApp() {
       ${!user ? '<div class="guest-banner">访客模式 · 点击左侧菜单登录</div>' : ''}
 
       <div class="search">
-        <div class="search-box" id="searchBox">
-          <button class="search-icon" id="searchBtn" title="搜索">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-            </svg>
-          </button>
-          <input type="text" id="searchInput" placeholder="搜索..." autocomplete="off">
-          <button class="engine-btn" id="engineBtn" title="切换搜索引擎">${renderEngineIcon(appState.activeEngine)}</button>
+        <div class="search-wrapper">
+          <div class="search-box" id="searchBox">
+            <button class="search-icon" id="searchBtn" title="搜索">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+              </svg>
+            </button>
+            <input type="text" id="searchInput" placeholder="搜索..." autocomplete="off">
+            <button class="engine-btn" id="engineBtn" title="切换搜索引擎">${renderEngineIcon(appState.activeEngine)}</button>
+          </div>
           <div class="engine-popup" id="enginePopup">
             ${activeEngines.map(e => `
               <div class="ep-item" data-engine="${escapeHtml(e.label)}" data-url="${escapeHtml(e.urlFormat)}">
@@ -183,7 +185,7 @@ function bindEvents() {
       enginePopup.classList.toggle('show');
     });
     document.addEventListener('click', (e) => {
-      if (!e.target.closest('#searchBox')) {
+      if (!e.target.closest('.search-wrapper')) {
         enginePopup.classList.remove('show');
       }
     });
