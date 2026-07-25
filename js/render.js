@@ -77,7 +77,13 @@ export function renderApp() {
 
       <div class="search">
         <div class="search-box" id="searchBox">
-          <button class="engine-btn" id="engineBtn">${renderEngineIcon(appState.activeEngine)}</button>
+          <button class="search-icon" id="searchBtn" title="搜索">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </button>
+          <input type="text" id="searchInput" placeholder="搜索..." autocomplete="off">
+          <button class="engine-btn" id="engineBtn" title="切换搜索引擎">${renderEngineIcon(appState.activeEngine)}</button>
           <div class="engine-popup" id="enginePopup">
             ${activeEngines.map(e => `
               <div class="ep-item" data-engine="${escapeHtml(e.label)}" data-url="${escapeHtml(e.urlFormat)}">
@@ -85,20 +91,7 @@ export function renderApp() {
                 <span>${escapeHtml(e.label)}</span>
               </div>`).join('')}
           </div>
-          <input type="text" id="searchInput" placeholder="搜索..." autocomplete="off">
-          <button class="icon-btn" id="searchBtn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-            </svg>
-          </button>
         </div>
-      </div>
-
-      <div class="categories">
-        <button class="cat-btn${activeCategory === 'all' ? ' active' : ''}" data-cat="all">全部</button>
-        ${(data.categories || []).map(c =>
-          `<button class="cat-btn${activeCategory === c.id ? ' active' : ''}" data-cat="${escapeHtml(c.id)}">${escapeHtml(c.title)}</button>`
-        ).join('')}
       </div>
 
       <div class="content">

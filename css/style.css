@@ -217,20 +217,7 @@ body.has-bg::after {
   color: var(--text-tertiary);
 }
 
-.search-box .icon-btn {
-  background: none;
-  border: none;
-  color: var(--text-secondary);
-  cursor: pointer;
-  font-size: 17px;
-  padding: 6px;
-  transition: color 0.2s;
-  flex-shrink: 0;
-}
 
-.search-box .icon-btn:hover {
-  color: var(--text);
-}
 
 .engine-btn {
   display: flex;
@@ -299,39 +286,9 @@ body.has-bg::after {
   color: var(--text);
 }
 
-/* ---- Categories ---- */
+/* ---- Categories（已隐藏 — 分类在侧边栏中） ---- */
 .categories {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-
-.cat-btn {
-  padding: 7px 18px;
-  font-size: 13px;
-  font-family: inherit;
-  background: var(--surface);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.cat-btn:hover {
-  background: var(--surface-hover);
-  color: var(--text);
-}
-
-.cat-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
-  font-weight: 600;
+  display: none;
 }
 
 /* ---- Content Grid ---- */
@@ -807,11 +764,18 @@ body.has-bg::after {
     font-size: 14px;
   }
 
+  .search-icon {
+    font-size: 15px;
+    padding: 4px;
+    margin-right: 4px;
+  }
+
   .engine-btn {
-    width: 30px;
-    height: 30px;
-    min-width: 30px;
-    margin-right: 6px;
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    margin-left: 4px;
+    font-size: 11px;
   }
 
   .grid {

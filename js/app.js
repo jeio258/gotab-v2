@@ -173,10 +173,13 @@ function renderSidebar() {
       </div>`).join('')}
     ${user ? '<button class="btn" style="width:100%;justify-content:center;margin-top:8px" id="addEngineBtn">+ 引擎</button>' : ''}
 
-    <h4>分类 (${categories.length})</h4>
+    <h4>分类</h4>
+    <div class="sidebar-item${appState.activeCategory === 'all' ? ' active' : ''}" data-sidebar-cat="all" style="cursor:pointer">
+      <span style="font-weight:${appState.activeCategory === 'all' ? '600' : '400'};color:${appState.activeCategory === 'all' ? 'var(--accent)' : 'inherit'}">全部</span>
+    </div>
     ${categories.map(c => `
-      <div class="sidebar-item">
-        <span>${escapeHtml(c.title)}</span>
+      <div class="sidebar-item${appState.activeCategory === c.id ? ' active' : ''}" data-sidebar-cat="${escapeHtml(c.id)}" style="cursor:pointer">
+        <span style="font-weight:${appState.activeCategory === c.id ? '600' : '400'};color:${appState.activeCategory === c.id ? 'var(--accent)' : 'inherit'}">${escapeHtml(c.title)}</span>
         ${user ? `<button class="btn btn-xs btn-danger" data-cat-delete="${escapeHtml(c.id)}">x</button>` : ''}
       </div>`).join('')}
     ${user ? '<button class="btn" style="width:100%;justify-content:center;margin-top:8px" id="addCatBtn">+ 分类</button>' : ''}
@@ -266,7 +269,17 @@ function bindSidebarEvents() {
 
   // 分类
   document.querySelectorAll('[data-cat-delete]').forEach(btn => {
-    btn.addEventListener('click', () => deleteCategory(btn.dataset.catDelete));
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      deleteCategory(btn.dataset.catDelete);
+    });
+  });
+  document.querySelectorAll('[data-sidebar-cat]').forEach(item => {
+    item.addEventListener('click', () => {
+      const catId = item.dataset.sidebarCat;
+      appState.activeCategory = catId;
+      renderAll();
+    });
   });
   document.getElementById('addCatBtn')?.addEventListener('click', showAddCategoryModal);
 
