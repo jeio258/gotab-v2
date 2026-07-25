@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "GoTab",
+  "version": "1.0.0",
+  "description": "极简浏览器起始页 — 深色/浅色主题 · 毛玻璃卡片 · 多引擎搜索",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "permissions": [],
+  "host_permissions": [
+    "https://gotab-v2.pages.dev/*",
+    "https://www.baidu.com/*",
+    "https://www.bing.com/*",
+    "https://www.google.com/*",
+    "https://faviconsnap.com/*"
+  ]
+}
