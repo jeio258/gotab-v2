@@ -10,10 +10,10 @@ export function escapeHtml(str) {
   return div.innerHTML;
 }
 
-// 显示 Toast
-export function showToast(message) {
+// 显示 Toast（支持 success / danger 变体）
+export function showToast(message, type = '') {
   const toast = document.createElement('div');
-  toast.className = 'toast';
+  toast.className = 'toast' + (type ? ' toast-' + type : '');
   toast.textContent = message;
   document.body.appendChild(toast);
   setTimeout(() => toast.remove(), 2200);
